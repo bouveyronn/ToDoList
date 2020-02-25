@@ -1,0 +1,122 @@
+
+
+
+/*Style form de connexion/inscription*/
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+}
+.login-form .form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+}
+/*-------------------------------------*/
+
+
+body{
+    background-image: url(../ico/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    background-size: cover;
+}
+
+#main > div > .list-group > .btn-add{
+    opacity: 1;
+    height: 40px;
+    background-image: url(../ico/add.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#main > div > .list-group > .list-group-item > .btn-edit {
+    opacity: 1;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../ico/edit.png);
+    background-repeat: no-repeat;
+    transform: translate(10px, 10px);
+}
+
+#main > div > .list-group > span > .btn-delete {
+    opacity: 1;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url(../ico/delete.png);
+    background-repeat: no-repeat;
+    /* transform: translate(10px, 10px); */
+    float: right;
+}
+
+#main > div > .list-group > .list-group-item > .btn-remove {
+    opacity: 1;
+    width: 24px;
+    height: 24px;
+    background-image: url(../ico/remove.png);
+    background-repeat: no-repeat;
+    transform: translate(10px, 10px);
+    position: absolute;
+    right: 30px;
+}
+
+#main > #Add{
+    height: 100%;
+}
+
+#main > #Add > div > .scooter{
+
+    transform: rotateY(180deg);
+    opacity: 1;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    background-image: url(../ico/scooter.gif);
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 100%;
+    background-size: contain;
+
+    animation: travel 15s ease-in-out infinite;
+    
+}
+
+#main > #Add > div > .btn-add{
+    opacity: 1;
+    height: 40px;
+    background-image: url(../ico/add.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*Anim trotinette*/
+@keyframes travel{
+    from{
+        
+    left: 0;
+    }
+    50%{
+        left:95%;
+        transform: rotate(45deg);
+        
+    }
+    to{
+        left:0;
+        transform: rotateY(0);
+        transform: rotate(0);
+    }
+}
