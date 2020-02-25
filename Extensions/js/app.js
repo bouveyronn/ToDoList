@@ -9,6 +9,9 @@ const EDIT_LIST = "EDIT_LIST";
 
 //#region Appels AJAX
 
+    
+
+
     //Fonction d'inscription'
     function Register(){
 
@@ -40,7 +43,7 @@ const EDIT_LIST = "EDIT_LIST";
         }).done(function(data) {
             Draw(data);
         });
-    }
+    } 
 
     //Ajout d'une liste
     function Add_List(data){   
@@ -347,4 +350,35 @@ function init(){
     //Masque le formulaire d'inscription
     $("#Register").toggle();
     init_nav();
+}
+
+
+
+
+function LireHistoire(){
+
+    $.ajax({
+        url: "http://127.0.0.1:8080/histoire"
+    }).done(function(data) {
+        //Draw(data);
+        for (let index = 0; index < data.length; index++) {
+            
+            Draw_Histoire(data[index]);
+        }
+        
+    });
+} 
+
+function Draw_Histoire(sFlux){
+    console.log(sFlux);
+    
+
+    var sHTML =  "<div class=\"card text-left\">"                                        
+                +"   <img class=\"card-img-top\" src=\"holder.js/100px180/\" alt=\"\">"  
+                +"    <div class=\"card-body\">"                                         
+                +"        <h4 class=\"card-title\">" + sFlux.titre + "</h4>"             
+                +"        <p class=\"card-text\">"+ sFlux.resume +"</p>"                 
+                +"    </div>"                                                            
+                +"</div>";
+    $(sHTML).fadeIn( "fast" ).appendTo($("#main"));
 }
