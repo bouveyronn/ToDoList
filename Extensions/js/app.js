@@ -5,6 +5,8 @@ const DELETE_ELEMENT = "DELETE_ELEMENT";
 const DELETE_LIST = "DELETE_LIST";
 const EDIT_ELEMENT = "EDIT_ELEMENT";
 const EDIT_LIST = "EDIT_LIST";
+
+const API_URL = "http://127.0.0.1:8080"
 //#endregion
 
 //#region Appels AJAX
@@ -358,9 +360,23 @@ function init(){
 function LireHistoire(){
 
     $.ajax({
-        url: "http://127.0.0.1:8080/histoire"
+        url: API_URL + "/histoire"
     }).done(function(data) {
         //Draw(data);
+        for (let index = 0; index < data.length; index++) {
+            
+            Draw_Histoire(data[index]);
+        }
+        
+    });
+} 
+
+function Search_Histoire(){
+    var sSearch = $("#search").val();
+    $.ajax({
+        url: API_URL + "/histoire?q=" + sSearch
+    }).done(function(data) {
+        $("#main").empty();
         for (let index = 0; index < data.length; index++) {
             
             Draw_Histoire(data[index]);

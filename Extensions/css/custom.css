@@ -27,11 +27,11 @@
 
 
 body{
-    background-image: url(../ico/bg.jpg);
+    /* background-image: url(../ico/bg.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow-x: hidden;
-    background-size: cover;
+    background-size: cover; */
 }
 
 #main > div > .list-group > .btn-add{
