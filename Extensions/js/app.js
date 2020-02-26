@@ -77,8 +77,6 @@ const API_URL = "http://127.0.0.1:8080"
     }
 //#endregion
 
-
-
 function LireHistoire(){
 
     $.ajax({
@@ -88,7 +86,11 @@ function LireHistoire(){
             Draw_Histoire(data[index], index);
         }
     }).fail(function(err) {
-        alert(err.responseText);
+        if(!err.readyState){
+            alert("Connecion échoué")
+        }else{
+            alert(err.responseText);
+        }
     });
 } 
 
@@ -107,18 +109,16 @@ function Search_Histoire(){
 } 
 
 function Draw_Histoire(sFlux, index){
-    
-
-    var sHTML =  "<div id=\"" + sFlux.id + "\"class=\"card\">"                                        
-                +"   <img class=\"card-img-top\" src=\""+ sFlux.image +"\" alt=\"\">"  
+    var sHTML =  "<div id=\"" + sFlux.id + "\"class=\" col-lg-3 col-md-6 col-12\">"                                        
+                +"   <img class=\"card-img-top\" src=\""+ sFlux.image +"\">"  
+                +"   <div class=\"bg-play ml-0 mr-0 m-auto\"></div>" 
                 +"    <div class=\"card-body\">"                                         
-                +"        <h4 class=\"card-title\">" + sFlux.titre + "</h4>"  
-                +"        <p class=\"card-text\">" + sFlux.resume + "</p>"               
-                +"    </div>"                                                         
+                +"        <h4 class=\"card-title\">" + sFlux.titre + "</h4>" 
+                +"    </div>"      
+                +"        <p class=\"card-text\">" + sFlux.resume + "</p>"                                                   
                 +"</div>";
     var oHistoire = $(sHTML).fadeIn( "slow" ).appendTo($("#main"));
     init_events(oHistoire,"HISTOIRE");
-
 }
 
 function  init_events(oDOM, action) {
